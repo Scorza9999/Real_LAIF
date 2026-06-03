@@ -1,5 +1,7 @@
-import { NativeModule, requireNativeModule } from 'expo';
+// this is for our native code
+
+import { NativeModule, requireNativeModule } from "expo";
 
 declare class RealLaifModule extends NativeModule<{}> {}
 
-export default requireNativeModule<RealLaifModule>('RealLaif');
+export default requireNativeModule<RealLaifModule>("RealLaif");
