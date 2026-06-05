@@ -10,7 +10,7 @@ class RealLaifModule : Module() {
     Name("RealLaif")
 
     Function("getRandomBoolean") {
-      return @Function Random.rextBoolean()
+      return@Function Random.nextBoolean()
     }
   }
 }
