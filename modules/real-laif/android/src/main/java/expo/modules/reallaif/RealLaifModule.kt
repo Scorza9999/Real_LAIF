@@ -7,7 +7,7 @@ import kotlin.random.Random
 
 class RealLaifModule : Module() {
   override fun definition() = ModuleDefinition {
-    Name("RealLaif")
+    Name("RealLaifModule")
 
     Function("getRandomBoolean") {
       return@Function Random.nextBoolean()
