@@ -1,16 +1,28 @@
 import { getRandomBoolean } from "@/modules/real-laif/src/RealLaifModule";
+import { Text } from "@react-navigation/elements";
 import React, { useState } from "react";
+import { Pressable } from "react-native";
 
-export default function MyButton() {
+function MyButton() {
   const [boolean, setBoolean] = useState(true);
+  var message: String = "";
+
+  if (boolean) {
+    message = "True";
+  } else {
+    message = "False";
+  }
 
   function handleClick() {
     setBoolean(getRandomBoolean());
   }
 
+  //ERROR  [Invariant Violation: View config getter callback for component `button` must be a function (received `undefined`). Make sure to start component names with a capital letter.]
   return (
-    <button onClick={handleClick}>
-      Kotlin ha fornito come valore booleano: {boolean.toString()}
-    </button>
+    <Pressable onPress={handleClick}>
+      <Text>Hi</Text>
+    </Pressable>
   );
 }
+
+export default MyButton;
