@@ -1,8 +1,14 @@
 // this is for our native code
 
-import { requireNativeModule } from "expo";
+import { NativeModule, requireNativeModule } from "expo";
 
-const MyRandomModule = requireNativeModule("RealLaifModule");
+// 1. Define the interface for your native functions
+interface RealLaifModuleInterface extends NativeModule {
+  getRandomBoolean: () => boolean;
+}
+
+const MyRandomModule =
+  requireNativeModule<RealLaifModuleInterface>("RealLaifModule");
 
 export function getRandomBoolean(): boolean {
   return MyRandomModule.getRandomBoolean();
