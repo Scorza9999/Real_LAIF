@@ -17,7 +17,6 @@ function MyButton() {
     setBoolean(getRandomBoolean());
   }
 
-  //ERROR  [Invariant Violation: View config getter callback for component `button` must be a function (received `undefined`). Make sure to start component names with a capital letter.]
   return (
     <Pressable onPress={handleClick}>
       <Text>{message}</Text>
