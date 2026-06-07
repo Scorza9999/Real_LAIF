@@ -14,7 +14,4 @@ export function getRandomBoolean(): boolean {
   return MyRandomModule.getRandomBoolean();
 }
 
-//declare class RealLaifModule extends NativeModule<{}> {}
-
-//const MyModule: RealLaifModule = requireNativeModule("RealLaif");
 export default MyRandomModule;
