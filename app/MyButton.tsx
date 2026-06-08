@@ -1,11 +1,12 @@
 import { getRandomBoolean } from "@/modules/real-laif/src/RealLaifModule";
 import { Text } from "@react-navigation/elements";
 import React, { useState } from "react";
-import { Pressable } from "react-native";
+import { Platform, Pressable } from "react-native";
 
 function MyButton() {
   const [boolean, setBoolean] = useState(true);
   var message: String = "";
+  const os: string = Platform.OS;
 
   if (boolean) {
     message = "True";
@@ -14,7 +15,11 @@ function MyButton() {
   }
 
   function handleClick() {
-    setBoolean(getRandomBoolean());
+    if (os === "android") {
+      setBoolean(getRandomBoolean());
+    } else {
+      //const random:
+    }
   }
 
   return (
