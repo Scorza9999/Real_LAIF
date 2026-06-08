@@ -1,25 +1,28 @@
 import { getRandomBoolean } from "@/modules/real-laif/src/RealLaifModule";
-import RandomModule from "@/modules/real-laif/src/RealLaifModule.web";
 import { Text } from "@react-navigation/elements";
 import React, { useState } from "react";
 import { Platform, Pressable } from "react-native";
 
 function MyButton() {
-  const [boolean, setBoolean] = useState(true);
+  const [bool, setBool] = useState(true);
   var message: String = "";
   const os: string = Platform.OS;
 
-  if (boolean) {
+  if (bool) {
     message = "True";
   } else {
     message = "False";
   }
 
+  function randomWeb(): boolean {
+    return Math.random() > 0.5;
+  }
+
   function handleClick() {
     if (os === "web") {
-      setBoolean(RandomModule.RandomBoolean());
+      setBool(randomWeb());
     } else {
-      setBoolean(getRandomBoolean());
+      setBool(getRandomBoolean());
     }
   }
 
