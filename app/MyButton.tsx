@@ -1,4 +1,5 @@
 import { getRandomBoolean } from "@/modules/real-laif/src/RealLaifModule";
+import RandomModuleWeb from "@/modules/real-laif/src/RealLaifModule.web";
 import { Text } from "@react-navigation/elements";
 import React, { useState } from "react";
 import { Platform, Pressable } from "react-native";
@@ -15,10 +16,10 @@ function MyButton() {
   }
 
   function handleClick() {
-    if (os === "android") {
-      setBoolean(getRandomBoolean());
+    if (os === "web") {
+      setBoolean(RandomModuleWeb.RandomBoolean());
     } else {
-      //const random:
+      setBoolean(getRandomBoolean());
     }
   }
 

@@ -2,10 +2,15 @@
 
 import { NativeModule, registerWebModule } from "expo";
 
-interface BooleanOracle extends NativeModule {
-  RandomCall: () => boolean;
+class RandomBooleanModuleWeb extends NativeModule {
+  static RandomBoolean(): boolean {
+    // gets a random number, then returns whether it's greater or not than 0.5
+    return Math.random() > 0.5;
+  }
 }
 
-class RealLaifModule extends NativeModule<{}> {}
-
-export default registerWebModule(RealLaifModule, "RealLaifModule");
+const RandomModuleWeb = registerWebModule(
+  RandomBooleanModuleWeb,
+  "RandomModuleWeb",
+);
+export default RandomModuleWeb;
