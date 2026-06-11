@@ -1,3 +1,4 @@
+import { Random } from "@/modules/random-boolean";
 import { Text } from "@react-navigation/elements";
 import React, { useState } from "react";
 import { Platform, Pressable } from "react-native";
@@ -17,12 +18,17 @@ function MyButton() {
     return Math.random() > 0.5;
   }
 
-  function handleClick() {
+  async function handleClick() {
     if (os === "web") {
       setBool(randomWeb());
     } else {
-      // TODO: native code
-      // setBool(getRandomBoolean());
+      try {
+        const nativeResult = await Random();
+        setBool(nativeResult);
+        console.log("Fatto");
+      } catch (error) {
+        console.error("ERRORE NEL CARICAMENTO");
+      }
     }
   }
 
