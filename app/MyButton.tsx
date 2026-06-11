@@ -1,7 +1,7 @@
-import { Random } from "@/modules/random-boolean";
 import { Text } from "@react-navigation/elements";
 import React, { useState } from "react";
 import { Platform, Pressable } from "react-native";
+import { Random } from "../modules/random-boolean/index";
 
 function MyButton() {
   const [bool, setBool] = useState(true);

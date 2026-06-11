@@ -1,5 +1,8 @@
-import { NativeModule, requireNativeModule } from "expo";
+// This is for our native code
+import { requireNativeModule } from "expo";
 
-declare class RandomBooleanModule extends NativeModule<{}> {}
+const RandomBoolean = requireNativeModule("RandomBoolean");
 
-export default requireNativeModule<RandomBooleanModule>("RandomBoolean");
+export async function Random(): Promise<boolean> {
+  return await RandomBoolean.Random();
+}

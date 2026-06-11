@@ -1,6 +1,4 @@
-import { registerWebModule, NativeModule } from 'expo';
-
-// RandomBooleanModule is not available on the web platform.
-class RandomBooleanModule extends NativeModule<{}> {}
-
-export default registerWebModule(RandomBooleanModule, 'RandomBooleanModule');
+// This is for web testing
+export async function Random(): Promise<boolean> {
+  return Math.random() > 0.5;
+}
