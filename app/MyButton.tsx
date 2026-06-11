@@ -1,4 +1,3 @@
-import { getRandomBoolean } from "@/modules/real-laif/src/RealLaifModule";
 import { Text } from "@react-navigation/elements";
 import React, { useState } from "react";
 import { Platform, Pressable } from "react-native";
@@ -22,7 +21,8 @@ function MyButton() {
     if (os === "web") {
       setBool(randomWeb());
     } else {
-      setBool(getRandomBoolean());
+      // TODO: native code
+      // setBool(getRandomBoolean());
     }
   }
 
