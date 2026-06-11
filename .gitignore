@@ -43,4 +43,4 @@ app-example
 /android
 
 # Compilated
-./modules/real-laif/android/build/
+modules/random-boolean/android/build/
