@@ -6,15 +6,18 @@ const ImagePickerBox = () => {
   // https://docs.expo.dev/versions/latest/sdk/imagepicker/
   const [image, setImage] = useState<string | null>(null);
 
+  // allows the user to pick an image from the gallery
+  // in the future this image will be analized
   const pickImage = async () => {
     const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
-    // controlla se ha il permesso
+    // checks for system permission
     if (!permission.granted) {
       Alert.alert("Permission required", "Permission required");
       return;
     }
 
+    // allows the user to pick an image. The app keeps the metadata and the uri
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images"],
       allowsEditing: false,
