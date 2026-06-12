@@ -38,7 +38,13 @@ const ImagePickerBox = () => {
       {image && (
         <Image
           source={{ uri: image }}
-          style={{ width: "100%", height: 300, resizeMode: "contain" }}
+          style={{
+            width: 300,
+            height: 500,
+            resizeMode: "contain",
+            borderColor: "black",
+            borderWidth: 1,
+          }}
         />
       )}
     </View>
