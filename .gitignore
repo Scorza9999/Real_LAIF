@@ -41,3 +41,6 @@ app-example
 # generated native folders
 /ios
 /android
+
+# Compilated
+modules/random-boolean/android/build/

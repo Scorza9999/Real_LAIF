@@ -1,14 +1,9 @@
-import { getRandomBoolean } from "@/modules/real-laif/src/RealLaifModule";
-import React, { useState } from "react";
+import React from "react";
 import { View } from "react-native";
+import MyButton from "./MyButton";
+import ImagePickerBox from "./UploadImage";
 
 export default function Index() {
-  const [boolean, setBoolean] = useState(true);
-
-  function handleClick() {
-    setBoolean(getRandomBoolean());
-  }
-
   return (
     <View
       style={{
@@ -17,9 +12,8 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <button onClick={handleClick}>
-        Kotlin ha fornito come valore booleano: {boolean.toString()}
-      </button>
+      <MyButton></MyButton>
+      <ImagePickerBox></ImagePickerBox>
     </View>
   );
 }
