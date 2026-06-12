@@ -2,10 +2,7 @@ package expo.modules.randomboolean
 
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 class RandomBooleanModule : Module() {
     private val moduleScope = CoroutineScope(Dispatchers.Default)
@@ -27,7 +24,7 @@ class RandomBooleanModule : Module() {
         }
     }
 
-    // Safely placed inside the class boundaries
+    // insert code here
     private fun executeRandom(): Boolean {
         return Math.random() > 0.5
     }
