@@ -3,10 +3,7 @@ import { useState } from "react";
 import { Alert, Button, Image, View } from "react-native";
 
 const ImagePickerBox = () => {
-  // TODO: WORK IN PROGRESS
   // https://docs.expo.dev/versions/latest/sdk/imagepicker/
-  // TODO: MUST MOVE THIS TO ITS OWN COMPONENT
-
   const [image, setImage] = useState<string | null>(null);
 
   const pickImage = async () => {
@@ -24,8 +21,6 @@ const ImagePickerBox = () => {
       exif: true,
       base64: false,
     });
-
-    console.log(result);
 
     if (!result.canceled) {
       setImage(result.assets[0].uri);
