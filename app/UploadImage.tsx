@@ -1,6 +1,6 @@
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
-import { Alert } from "react-native";
+import { Alert, Button, Image, View } from "react-native";
 
 const imagePickerBox = () => {
   // TODO: WORK IN PROGRESS
@@ -15,13 +15,29 @@ const imagePickerBox = () => {
     // controlla se ha il permesso
     if (!permission.granted) {
       Alert.alert("Permission required", "Permission required");
-      return null;
+      return;
     }
 
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images"],
       allowsEditing: false,
       exif: true,
+      base64: false,
     });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
   };
+
+  return (
+    <View>
+      <Button onPress={pickImage} title="Give me the picture" />
+      {image && <Image source={{ uri: image }} />}
+    </View>
+  );
 };
+
+export default imagePickerBox;
