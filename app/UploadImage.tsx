@@ -21,7 +21,8 @@ const ImagePickerBox = () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images"],
       allowsEditing: false,
-      exif: true,
+      quality: 1, //doesn't compress image (otherwise the noise to analyze can be lost)
+      exif: false, //otherwise it creates a json object that slows the app down
       base64: false,
     });
 
