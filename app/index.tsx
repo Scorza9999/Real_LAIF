@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import MyButton from "./MyButton";
+import ImagePickerBox from "./UploadImage";
 
 export default function Index() {
   return (
@@ -12,6 +13,7 @@ export default function Index() {
       }}
     >
       <MyButton></MyButton>
+      <ImagePickerBox></ImagePickerBox>
     </View>
   );
 }

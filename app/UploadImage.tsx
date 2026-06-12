@@ -2,7 +2,7 @@ import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
 import { Alert, Button, Image, View } from "react-native";
 
-const imagePickerBox = () => {
+const ImagePickerBox = () => {
   // TODO: WORK IN PROGRESS
   // https://docs.expo.dev/versions/latest/sdk/imagepicker/
   // TODO: MUST MOVE THIS TO ITS OWN COMPONENT
@@ -35,9 +35,14 @@ const imagePickerBox = () => {
   return (
     <View>
       <Button onPress={pickImage} title="Give me the picture" />
-      {image && <Image source={{ uri: image }} />}
+      {image && (
+        <Image
+          source={{ uri: image }}
+          style={{ width: "100%", height: 300, resizeMode: "contain" }}
+        />
+      )}
     </View>
   );
 };
 
-export default imagePickerBox;
+export default ImagePickerBox;
