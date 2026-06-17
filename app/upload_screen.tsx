@@ -1,3 +1,4 @@
+import { Button, Text } from "@react-navigation/elements";
 import { useRouter } from "expo-router";
 import React from "react";
 import { Image, View } from "react-native";
@@ -10,8 +11,18 @@ type ImageProps = {
 const UploadScreen = (props: ImageProps) => {
   const router = useRouter();
 
+  const handleConfirm = () => {};
+
+  const handleReject = () => {};
+
   return (
-    <View>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Image
         source={{ uri: props.uri }}
         style={{
@@ -22,6 +33,9 @@ const UploadScreen = (props: ImageProps) => {
           borderWidth: 4,
         }}
       ></Image>
+      <Text>Continue?</Text>
+      <Button onPress={() => handleConfirm()}>Yes</Button>
+      <Button onPress={() => handleReject}>No</Button>
     </View>
   );
 };
