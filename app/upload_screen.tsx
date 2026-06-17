@@ -1,11 +1,29 @@
-import { Text } from "@react-navigation/elements";
+import { useRouter } from "expo-router";
 import React from "react";
-import { View } from "react-native";
+import { Image, View } from "react-native";
 
-const UploadScreen = () => {
+// l'immagine da passare a questo schermo
+type ImageProps = {
+  uri: string;
+};
+
+const UploadScreen = (props: ImageProps) => {
+  const router = useRouter();
+
   return (
     <View>
-      <Text>hi</Text>
+      <Image
+        source={{ uri: props.uri }}
+        style={{
+          height: 500,
+          width: 300,
+          resizeMode: "contain",
+          borderColor: "black",
+          borderWidth: 4,
+        }}
+      ></Image>
     </View>
   );
 };
+
+export default UploadScreen;
