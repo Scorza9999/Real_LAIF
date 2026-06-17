@@ -1,14 +1,10 @@
 import { Button, Text } from "@react-navigation/elements";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
 import { Image, View } from "react-native";
 
-// l'immagine da passare a questo schermo
-type ImageProps = {
-  uri: string;
-};
-
-const UploadScreen = (props: ImageProps) => {
+const UploadScreen = () => {
+  const { imageUri } = useLocalSearchParams<{ imageUri: string }>();
   const router = useRouter();
 
   const handleConfirm = () => {
@@ -35,7 +31,7 @@ const UploadScreen = (props: ImageProps) => {
       }}
     >
       <Image
-        source={{ uri: props.uri }}
+        source={{ uri: imageUri }}
         style={{
           height: 500,
           width: 300,

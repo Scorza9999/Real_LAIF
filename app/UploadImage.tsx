@@ -1,7 +1,7 @@
 import * as ImagePicker from "expo-image-picker";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Alert, Button, Image, View } from "react-native";
+import { Alert, Button, View } from "react-native";
 
 const ImagePickerBox = () => {
   // https://docs.expo.dev/versions/latest/sdk/imagepicker/
@@ -30,14 +30,27 @@ const ImagePickerBox = () => {
     });
 
     if (!result.canceled) {
-      setImage(result.assets[0].uri);
+      const imageUri = result.assets[0].uri;
+      setImage(imageUri);
+
+      router.navigate({
+        pathname: "/upload_screen/upload_screen",
+        params: { imageUri: imageUri },
+      });
     }
   };
 
   return (
     <View>
       <Button onPress={pickImage} title="Give me the picture" />
-      {image && (
+    </View>
+  );
+};
+
+export default ImagePickerBox;
+
+// this is just for now
+/*{image && (
         <Image
           source={{ uri: image }}
           style={{
@@ -48,9 +61,4 @@ const ImagePickerBox = () => {
             borderWidth: 1,
           }}
         />
-      )}
-    </View>
-  );
-};
-
-export default ImagePickerBox;
+      )}*/
