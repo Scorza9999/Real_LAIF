@@ -20,6 +20,8 @@ const UploadScreen = () => {
 
   const handleReject = () => {
     console.log("No pressed");
+    // goes back to previous screen
+    router.back();
   };
 
   return (
@@ -42,7 +44,7 @@ const UploadScreen = () => {
       ></Image>
       <Text>Continue?</Text>
       <Button onPress={() => handleConfirm()}>Yes</Button>
-      <Button onPress={() => handleReject}>No</Button>
+      <Button onPress={() => handleReject()}>No</Button>
     </View>
   );
 };

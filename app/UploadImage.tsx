@@ -1,16 +1,14 @@
 import * as ImagePicker from "expo-image-picker";
 import { useRouter } from "expo-router";
-import { useState } from "react";
 import { Alert, Button, View } from "react-native";
 
 const ImagePickerBox = () => {
   // https://docs.expo.dev/versions/latest/sdk/imagepicker/
-  const [image, setImage] = useState<string | null>(null);
 
   // for routing to the upload screen
   const router = useRouter();
   // allows the user to pick an image from the gallery
-  // in the future this image will be analized
+  // this image will be analized by kotlin
   const pickImage = async () => {
     const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
@@ -31,10 +29,11 @@ const ImagePickerBox = () => {
 
     if (!result.canceled) {
       const imageUri = result.assets[0].uri;
-      setImage(imageUri);
 
+      // check if this implementation is fast enough
       router.navigate({
         pathname: "/upload_screen/upload_screen",
+        // we pass the URI directly
         params: { imageUri: imageUri },
       });
     }
@@ -48,17 +47,3 @@ const ImagePickerBox = () => {
 };
 
 export default ImagePickerBox;
-
-// this is just for now
-/*{image && (
-        <Image
-          source={{ uri: image }}
-          style={{
-            width: 300,
-            height: 500,
-            resizeMode: "contain",
-            borderColor: "black",
-            borderWidth: 1,
-          }}
-        />
-      )}*/
