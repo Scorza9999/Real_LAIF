@@ -11,9 +11,20 @@ type ImageProps = {
 const UploadScreen = (props: ImageProps) => {
   const router = useRouter();
 
-  const handleConfirm = () => {};
+  const handleConfirm = () => {
+    /*
+     * This part here will:
+     * 1. add a spinner to show that the program is loading
+     * 2. send the image to kotlin
+     * 3. receive kotlin's response
+     * 4. send the response to a different page to show the final result
+     */
+    console.log("Yes pressed");
+  };
 
-  const handleReject = () => {};
+  const handleReject = () => {
+    console.log("No pressed");
+  };
 
   return (
     <View
