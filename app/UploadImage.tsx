@@ -1,4 +1,5 @@
 import * as ImagePicker from "expo-image-picker";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Alert, Button, Image, View } from "react-native";
 
@@ -6,6 +7,8 @@ const ImagePickerBox = () => {
   // https://docs.expo.dev/versions/latest/sdk/imagepicker/
   const [image, setImage] = useState<string | null>(null);
 
+  // for routing to the upload screen
+  const router = useRouter();
   // allows the user to pick an image from the gallery
   // in the future this image will be analized
   const pickImage = async () => {
