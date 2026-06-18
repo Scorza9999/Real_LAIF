@@ -1,6 +1,5 @@
 import React from "react";
 import { View } from "react-native";
-import MyButton from "./MyButton";
 import ImagePickerBox from "./UploadImage";
 
 export default function Index() {
@@ -12,7 +11,6 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <MyButton></MyButton>
       <ImagePickerBox></ImagePickerBox>
     </View>
   );
