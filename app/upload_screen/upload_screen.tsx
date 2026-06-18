@@ -18,7 +18,7 @@ const UploadScreen = () => {
     } else {
       // for android
       try {
-        nativeResult = await Random();
+        nativeResult = await Random(imageUri);
       } catch (error) {
         console.error("ERROR");
       }

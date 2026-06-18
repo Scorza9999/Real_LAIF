@@ -3,6 +3,6 @@ import { requireNativeModule } from "expo";
 
 const RandomBoolean = requireNativeModule("RandomBoolean");
 
-export async function Random(): Promise<boolean> {
-  return await RandomBoolean.Random();
+export async function Random(uri: String): Promise<boolean> {
+  return await RandomBoolean.Random(uri);
 }

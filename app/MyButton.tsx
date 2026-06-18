@@ -1,10 +1,8 @@
 import { Text } from "@react-navigation/elements";
-import React, { useState } from "react";
-import { Platform, Pressable } from "react-native";
-import { Random } from "../modules/random-boolean/index";
+import React from "react";
 
 function MyButton() {
-  const [bool, setBool] = useState(true);
+  /*const [bool, setBool] = useState(true);
   var message: String = "";
   const os: string = Platform.OS;
 
@@ -38,11 +36,14 @@ function MyButton() {
     }
   }
 
-  // shows the message
+  // shows the message*/
   return (
-    <Pressable onPress={handleClick}>
-      <Text>{message}</Text>
-    </Pressable>
+    <Text>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, tempora
+      mollitia facere, qui aut repellendus fugiat sunt praesentium modi delectus
+      odit autem porro, sapiente temporibus pariatur voluptate voluptatem fuga.
+      Tempora.
+    </Text>
   );
 }
 
