@@ -25,10 +25,10 @@ const UploadScreen = () => {
     }
     /*
      * This part here will:
-     * 1. add a spinner to show that the program is loading
-     * 2. send the image to kotlin
-     * 3. receive kotlin's response
-     * 4. send the response to a different page to show the final result
+     * [ ] add a spinner to show that the program is loading
+     * [X] send the image to kotlin
+     * [X] receive kotlin's response
+     * [ ] send the response to a different page to show the final result
      */
     console.log("Yes pressed");
   };
