@@ -1,13 +1,28 @@
 import { Button, Text } from "@react-navigation/elements";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, Platform, View } from "react-native";
+import { Random } from "../../modules/random-boolean/index";
 
 const UploadScreen = () => {
   const { imageUri } = useLocalSearchParams<{ imageUri: string }>();
   const router = useRouter();
 
-  const handleConfirm = () => {
+  // this might change in the future, maybe we will return an opcode instead
+  var nativeResult: boolean; // for now, not used
+
+  const handleConfirm = async () => {
+    // for web
+    if (Platform.OS === "web") {
+      nativeResult = Math.random() > 0.5;
+    } else {
+      // for android
+      try {
+        nativeResult = await Random();
+      } catch (error) {
+        console.error("ERROR");
+      }
+    }
     /*
      * This part here will:
      * 1. add a spinner to show that the program is loading
