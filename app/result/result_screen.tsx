@@ -1,27 +1,28 @@
-import { Text } from "@react-navigation/elements";
+import { Button, Text } from "@react-navigation/elements";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
 import { Image, View } from "react-native";
 
 const result_screen = () => {
   // the image uri and the operation to be performed
-  const { imageUri, param_opcode } = useLocalSearchParams<{
+  const { imageUri, opcode } = useLocalSearchParams<{
     imageUri: string;
-    param_opcode: string;
+    opcode: string;
   }>();
   const router = useRouter();
-  const opcode = Number(param_opcode);
+  console.log(opcode);
 
-  const setMessage = (code: number) => {
-    switch (code) {
-      case 0:
+  const setMessage = (opcode: string) => {
+    switch (opcode) {
+      case "0":
         return "this is ai";
-      case 1:
+      case "1":
         return "this is NOT ai";
-      case 2:
+      case "2":
         return "Error: could not verify";
       default:
-        console.log("Error: unknown opcode ${code}");
+        console.error("Error: unknown opcode ");
+        console.log(opcode);
         return "Error: unknown code";
     }
   };
@@ -47,6 +48,7 @@ const result_screen = () => {
         }}
       />
       <Text>{message}</Text>
+      <Button onPress={() => router.replace("/")}>Go back</Button>
     </View>
   );
 };
