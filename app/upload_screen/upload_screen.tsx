@@ -10,6 +10,7 @@ const UploadScreen = () => {
 
   // this might change in the future, maybe we will return an opcode instead
   var nativeResult: boolean; // for now, not used
+  var no_error: boolean = true;
 
   const handleConfirm = async () => {
     // for web
@@ -21,6 +22,7 @@ const UploadScreen = () => {
         nativeResult = await Random(imageUri);
       } catch (error) {
         console.error("ERROR");
+        no_error = false;
       }
     }
     /*
