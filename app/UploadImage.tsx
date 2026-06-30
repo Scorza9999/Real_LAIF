@@ -31,7 +31,7 @@ const ImagePickerBox = () => {
       const imageUri = result.assets[0].uri;
 
       // check if this implementation is fast enough
-      router.navigate({
+      router.push({
         pathname: "/upload_screen/upload_screen",
         // we pass the URI directly
         params: { imageUri: imageUri },

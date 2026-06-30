@@ -1,5 +1,5 @@
 import { Button, Text } from "@react-navigation/elements";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { Href, useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
 import { Image, Platform, View } from "react-native";
 import { Random } from "../../modules/random-boolean/index";
@@ -7,7 +7,7 @@ import { Random } from "../../modules/random-boolean/index";
 const UploadScreen = () => {
   const { imageUri } = useLocalSearchParams<{ imageUri: string }>();
   const router = useRouter();
-  const path_to_file: string = "/result/result_screen";
+  const path_to_file: Href = "../result/result_screen";
 
   const handleConfirm = async () => {
     var nativeResult: boolean; // a temporary variable
@@ -37,7 +37,7 @@ const UploadScreen = () => {
      * [ ] send the response to a different page to show the final result
      */
     console.log("Yes pressed");
-    router.navigate({
+    router.push({
       pathname: path_to_file,
       params: { imageUri, opcode },
     });
