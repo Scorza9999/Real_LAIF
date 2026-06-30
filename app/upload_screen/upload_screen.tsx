@@ -7,12 +7,12 @@ import { Random } from "../../modules/random-boolean/index";
 const UploadScreen = () => {
   const { imageUri } = useLocalSearchParams<{ imageUri: string }>();
   const router = useRouter();
-
-  // this might change in the future, maybe we will return an opcode instead
-  var nativeResult: boolean; // a temporary variable
-  var opcode: string; // the code that will be passed to the result screen
+  const path_to_file: string = "/result/result_screen";
 
   const handleConfirm = async () => {
+    var nativeResult: boolean; // a temporary variable
+    var opcode: string; // the code that will be passed to the result screen
+
     // for web
     if (Platform.OS === "web") {
       nativeResult = Math.random() > 0.5;
@@ -38,7 +38,7 @@ const UploadScreen = () => {
      */
     console.log("Yes pressed");
     router.navigate({
-      pathname: "../Result/result_screen",
+      pathname: path_to_file,
       params: { imageUri, opcode },
     });
   };
@@ -66,7 +66,7 @@ const UploadScreen = () => {
           borderColor: "black",
           borderWidth: 4,
         }}
-      ></Image>
+      />
       <Text>Continue?</Text>
       <Button onPress={() => handleConfirm()}>Yes</Button>
       <Button onPress={() => handleReject()}>No</Button>
