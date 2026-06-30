@@ -1,5 +1,5 @@
 import { Button, Text } from "@react-navigation/elements";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { Href, useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
 import { Image, Platform, View } from "react-native";
 import { Random } from "../../modules/random-boolean/index";
@@ -7,20 +7,26 @@ import { Random } from "../../modules/random-boolean/index";
 const UploadScreen = () => {
   const { imageUri } = useLocalSearchParams<{ imageUri: string }>();
   const router = useRouter();
-
-  // this might change in the future, maybe we will return an opcode instead
-  var nativeResult: boolean; // for now, not used
+  const path_to_file: Href = "../result/result_screen";
 
   const handleConfirm = async () => {
+    var nativeResult: boolean; // a temporary variable
+    var opcode: string; // the code that will be passed to the result screen
+
     // for web
     if (Platform.OS === "web") {
       nativeResult = Math.random() > 0.5;
+
+      opcode = nativeResult ? "0" : "1";
     } else {
       // for android
       try {
         nativeResult = await Random(imageUri);
+
+        opcode = nativeResult ? "0" : "1";
       } catch (error) {
         console.error("ERROR");
+        opcode = "2";
       }
     }
     /*
@@ -31,6 +37,10 @@ const UploadScreen = () => {
      * [ ] send the response to a different page to show the final result
      */
     console.log("Yes pressed");
+    router.push({
+      pathname: path_to_file,
+      params: { imageUri, opcode },
+    });
   };
 
   const handleReject = () => {
@@ -56,7 +66,7 @@ const UploadScreen = () => {
           borderColor: "black",
           borderWidth: 4,
         }}
-      ></Image>
+      />
       <Text>Continue?</Text>
       <Button onPress={() => handleConfirm()}>Yes</Button>
       <Button onPress={() => handleReject()}>No</Button>
