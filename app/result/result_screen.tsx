@@ -10,7 +10,6 @@ const result_screen = () => {
     opcode: string;
   }>();
   const router = useRouter();
-  console.log(opcode);
 
   const setMessage = (opcode: string) => {
     switch (opcode) {
@@ -21,12 +20,11 @@ const result_screen = () => {
       case "2":
         return "Error: could not verify";
       default:
-        console.error("Error: unknown opcode ");
-        console.log(opcode);
         return "Error: unknown code";
     }
   };
 
+  // changes the message based on the opcode
   const message: string = setMessage(opcode);
 
   return (
