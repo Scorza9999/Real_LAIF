@@ -37,6 +37,10 @@ const UploadScreen = () => {
      * [ ] send the response to a different page to show the final result
      */
     console.log("Yes pressed");
+    router.navigate({
+      pathname: "../Result/result_screen",
+      params: { imageUri, opcode },
+    });
   };
 
   const handleReject = () => {
