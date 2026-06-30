@@ -12,6 +12,22 @@ const result_screen = () => {
   const router = useRouter();
   const opcode = Number(param_opcode);
 
+  const setMessage = (code: number) => {
+    switch (code) {
+      case 0:
+        return "this is ai";
+      case 1:
+        return "this is NOT ai";
+      case 2:
+        return "Error: could not verify";
+      default:
+        console.error("Error: unknown opcode");
+        return "Error: unknown code";
+    }
+  };
+
+  const message: string = setMessage(opcode);
+
   return (
     <View
       style={{
@@ -30,12 +46,7 @@ const result_screen = () => {
           borderWidth: 4,
         }}
       />
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-        explicabo, aliquid minima consequatur ipsa nulla quo voluptas non magnam
-        error quia incidunt nihil expedita nisi vel temporibus cupiditate
-        voluptate quibusdam!
-      </Text>
+      <Text>{message}</Text>
     </View>
   );
 };
