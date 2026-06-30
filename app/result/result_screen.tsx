@@ -21,7 +21,7 @@ const result_screen = () => {
       case 2:
         return "Error: could not verify";
       default:
-        console.error("Error: unknown opcode");
+        console.log("Error: unknown opcode ${code}");
         return "Error: unknown code";
     }
   };
