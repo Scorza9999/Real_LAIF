@@ -9,20 +9,24 @@ const UploadScreen = () => {
   const router = useRouter();
 
   // this might change in the future, maybe we will return an opcode instead
-  var nativeResult: boolean; // for now, not used
-  var no_error: boolean = true;
+  var nativeResult: boolean; // a temporary variable
+  var opcode: string; // the code that will be passed to the result screen
 
   const handleConfirm = async () => {
     // for web
     if (Platform.OS === "web") {
       nativeResult = Math.random() > 0.5;
+
+      opcode = nativeResult ? "0" : "1";
     } else {
       // for android
       try {
         nativeResult = await Random(imageUri);
+
+        opcode = nativeResult ? "0" : "1";
       } catch (error) {
         console.error("ERROR");
-        no_error = false;
+        opcode = "2";
       }
     }
     /*
