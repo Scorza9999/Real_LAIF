@@ -1,7 +1,7 @@
 package expo.modules.randomboolean
 
-import java.do.File
-import java.in.InputStream
+import java.io.BufferedInputStream
+import java.io.InputStream
 import java.io.FileInputStream
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
@@ -19,14 +19,6 @@ class RandomBooleanModule : Module() {
 
     // insert code here
     private fun executeRandom(uri: String): Boolean {
-
-
-        FileInputStream(uri).bufferedReader().use { reader ->
-            //TODO: input stream
-        }
-
-
-
         //TODO: make async and implement actual logic
 
         // let's start with the logic
